@@ -1,7 +1,8 @@
 package dev.onkar.productservice.services;
 
 import dev.onkar.productservice.dtos.GenericProductDto;
-import dev.onkar.productservice.models.Product;
+
+import java.util.List;
 
 public interface ProductService {
 
@@ -9,4 +10,5 @@ public interface ProductService {
 
     GenericProductDto getProductById(Long id);
 
+    List<GenericProductDto> getAllProducts();
 }

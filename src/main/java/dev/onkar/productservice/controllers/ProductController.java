@@ -2,15 +2,14 @@ package dev.onkar.productservice.controllers;
 
 import dev.onkar.productservice.dtos.GenericProductDto;
 import dev.onkar.productservice.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
+import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController {
+public class      ProductController {
 //    @Autowired
     // field injection
     private ProductService productService;
@@ -24,8 +23,10 @@ public class ProductController {
 //    public void setProductService(ProductService productService) {
 //        this.productService = productService;
 //    }
+    //GET /products {}
     @GetMapping()
-    public void getAllProducts(){
+    public List<GenericProductDto> getAllProducts(){
+        return productService.getAllProducts();
 
     }
 
