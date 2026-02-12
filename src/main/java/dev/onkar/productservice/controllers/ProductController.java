@@ -20,7 +20,7 @@ public class      ProductController {
     private ProductService productService;
 
     // constructor injection
-    public ProductController(@Qualifier("fakeStoreProductService") ProductService productService) {
+    public ProductController( ProductService productService) {
         this.productService = productService;
     }
     // setter injection
