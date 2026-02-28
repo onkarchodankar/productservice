@@ -1,15 +1,13 @@
 package dev.onkar.productservice.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product extends BaseModel {
     private String title;
     private String description;
@@ -18,9 +16,13 @@ public class Product extends BaseModel {
     // => L to R: 1 : 1
     // => R to L: m : 1
     // => ans m : 1
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "category")
     private Category category;
-    private double price;
+
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.PERSIST})
+    private Price price;
+//    private double price;
 
 
 
